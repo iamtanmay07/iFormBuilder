@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -21,7 +21,8 @@ import { navigate } from '../actions/navigateToForm';
 import { Plus } from 'lucide-react';
 import {usePlausible} from 'next-plausible'
 import { motion } from 'framer-motion';
-
+import { FormCountContext } from './FormCountContext';
+import { getUserForms } from '../actions/getUserForms';
 import {
   slideInFromLeft,
   slideInFromRight,
@@ -51,6 +52,8 @@ const FormGenerator = (props: Props) => {
   const session = useSession();
   const plausible = usePlausible()
 
+
+
   useEffect(() => {
     if (state.message === "success") {
       setOpen(false);
@@ -59,13 +62,21 @@ const FormGenerator = (props: Props) => {
 
   }, [state.message])
 
+
   const onFormCreate = () => {
-    plausible('create-form')
-    if (session.data?.user) {
-      setOpen(true);
-    } else {
-      signIn();
-    }
+    const formCount : number = 0;
+      // alert(formCount)
+      if(formCount >= 3){
+        alert("You have reached the maximum number of forms in a free account. Please subscribe to create more forms!");
+      }
+      else{
+        plausible('create-form')
+        if(session.data?.user) {
+            setOpen(true);
+          } else {
+            signIn();
+          }
+      }
   }
 
   return (

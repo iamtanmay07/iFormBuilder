@@ -20,9 +20,9 @@ const UpdgradeAccBtn = async (props: Props) => {
     return null;
   }
   const forms = await getUserForms();
-  const formCount = forms.length;
-  const percent = (formCount / MAX_FREE_FROMS) * 100;
-
+  const formCount : number = (forms.length>=3) ? 3 : forms.length;
+  const percent  = ((formCount>=3) ? 100 : (formCount / MAX_FREE_FROMS) * 100);
+  
   return (
     <div className='p-4 mb-4 text-left text-xs'>
       <ProgressBar value={percent} />
@@ -35,4 +35,4 @@ const UpdgradeAccBtn = async (props: Props) => {
   )
 }
 
-export default UpdgradeAccBtn
+export default UpdgradeAccBtn;
