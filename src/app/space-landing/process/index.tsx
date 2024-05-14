@@ -33,7 +33,7 @@ const Process = () => {
                     <p className="text-white mb-[9px] text-[0.9rem]"> 🔗 Be Specific with Prompts for more accurate form! </p>
                     <p className="text-white mb-[9px] text-[0.9rem]"> 🔗 Always preview the generated forms before finalizing them.  </p>
                     <p className="text-white mb-[9px] text-[0.9rem]"> 🔗 Utilize the dashboard to track & analyze form submissions.  </p>
-                    <p className="text-white mb-[9px] text-[0.9rem]"> 🔗 Share your form via a link by using the 'Publish' button.  </p>
+                    <p className="text-white mb-[9px] text-[0.9rem]"> 🔗 Share your form via a link by using the &apos;Publish&apos; button.  </p>
                     <p className="text-white mb-[9px] text-[0.9rem]"> 🔗 Customize form fields to capture the exact data you need.  </p>
                     <p className="text-white mb-[9px] text-[0.9rem]"> 🔗 Explore subscription options for more Forms generation!  </p>
 
