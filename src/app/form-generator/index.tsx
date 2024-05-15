@@ -66,6 +66,7 @@ const FormGenerator = (props: Props) => {
   const onFormCreate = () => {
     const formCount : number = 0;
       // alert(formCount)
+      alert("If you encounter a 'client side error' when generating the form, simply REFRESH the page, you will be good to go! (sorry from our side)")
       if(formCount >= 3){
         alert("You have reached the maximum number of forms in a free account. Please subscribe to create more forms!");
       }
