@@ -19,7 +19,7 @@ const LandingPage = (props: Props) => {
         <div className='w-full bg-gradient-to-b from-transparent to-white h-24'></div>
       </section> */}
       
-      <section className='flex flex-col items-center justify-center space-y-4 mt-12 pb-24' id="features">
+      <section className='flex flex-col items-center justify-center space-y-4 mt-12 pb-24 pl-[50px]' id="features">
 
       <motion.div
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
@@ -40,13 +40,13 @@ const LandingPage = (props: Props) => {
               width="250"
               height="250"
               alt="create a form"
-              className='bg-white p-4 shadow-sm border rounded-md'
+              className='bg-white p-4 shadow-sm border rounded-md '
             />
             <Image src="/arrow.svg"
               width="125"
               height="125"
               alt="arrow"
-              className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2" />
+              className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 hidden sm:block" />
             <p className='text-[#C5C6D0]'>1. Add a prompt and describe the requirements for your form.</p>
           </li>
           <li className='flex flex-col items-center space-y-4 relative'>
@@ -61,7 +61,7 @@ const LandingPage = (props: Props) => {
               width="125"
               height="125"
               alt="arrow"
-              className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 scale-x-[-1] rotate-180" />
+              className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 scale-x-[-1] rotate-180 hidden sm:block" />
             <p className='text-[#C5C6D0]'>2. Generate the form.</p>
           </li>
           <li className='flex flex-col items-center space-y-4 relative'>
