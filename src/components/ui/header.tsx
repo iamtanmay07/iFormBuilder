@@ -82,12 +82,12 @@ const Header = async (props: Props) => {
   return (
     <header className="sticky bottom-1 ">
       {" "}
-      <nav className="sticky bg-[#030014] border-gray-200 px-4 py-2.5">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+      <nav className="sticky bg-[#030014] border-gray-200 px-4 py-2.5 ml-[40px]">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl flex-col gap-3">
           <a href="/">
-            <Image src="/logo.png" alt="logo" height={55} width={180} className="mx-[40px] mt-[10px]"/>
+            <Image src="/logo.png" alt="logo" height={55} width={180} className=" mx-[40px] mt-[10px]"/>
           </a>
-          <div className="mr-[30px]">
+          <div className="">
             {session?.user ? (
               <div className="flex items-center gap-4">
                 <Link href="/view-forms">
