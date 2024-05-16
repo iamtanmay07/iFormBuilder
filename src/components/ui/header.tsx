@@ -83,15 +83,15 @@ const Header = async (props: Props) => {
     <header className="sticky bottom-1 ">
       {" "}
       <nav className="sticky bg-[#030014] border-gray-200 px-4 py-2.5 ml-[40px]">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl flex-col gap-3">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl flex-col sm:flex-row gap-3">
           <a href="/">
-            <Image src="/logo.png" alt="logo" height={55} width={180} className=" mx-[40px] mt-[10px]"/>
+            <Image src="/logo.png" alt="logo" height={55} width={180} className=" mx-[20px] mt-[10px]"/>
           </a>
           <div className="">
             {session?.user ? (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 sm:mr-[30px]">
                 <Link href="/view-forms">
-                  <Button variant="outline" className="py-2 bg-transparent text-center text-white cursor-pointer rounded-lg max-w-[200px]">Dashboard</Button>
+                  <Button variant="outline" className="py-2 bg-transparent text-center text-white cursor-pointer rounded-lg max-w-[200px] ">Dashboard</Button>
                 </Link>
                 {session.user.name && session.user.image && (
                   <Image

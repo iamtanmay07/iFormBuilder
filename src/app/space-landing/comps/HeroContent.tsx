@@ -16,7 +16,7 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row m-auto items-center justify-center space-x-20 mt-4 sm:mt-[-5px] pl-[100px] sm:ml-0 w-full"
+      className="flex flex-row m-auto items-center justify-center mt-4 sm:mt-[30px] sm:pl-[100px] pl-[40px] sm:pr-0 pr-[20px] sm:ml-0 sm:w-full"
     >
       <div className="h-full flex flex-col gap-5 w-full items-center sm:items-start">
         <motion.div
@@ -32,7 +32,7 @@ const HeroContent = () => {
         <div className="">
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white w-auto h-auto"
+          className="flex flex-col gap-6 mt-6 text-4xl sm:text-6xl font-bold text-white w-auto h-auto"
         >
           <span>
             Create your Forms in
@@ -58,7 +58,7 @@ const HeroContent = () => {
         >
           Learn More!
         </motion.a> */ }
-        <motion.a className="m-auto"
+        <motion.a className="m-auto sm:m-0"
          variants={slideInFromLeft(1)} 
         >
           <FormGenerator/>
@@ -68,7 +68,7 @@ const HeroContent = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
+        className="hidden sm:block w-full h-full flex justify-center items-center"
       >
         <Image className="hidden sm:block"
           src="/mainIconsdark.svg"

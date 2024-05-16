@@ -48,8 +48,8 @@ export default function AdminLayout({ children }: {
           <UpdgradeAccBtn />
         </aside>
         <main className="flex w-full flex-1 flex-col overflow-hidden">
-          <header className="flex items-center">
-            <h1 className="text-4xl m-5 p-4 font-semibold Welcome-text">DashBoard</h1>
+          <header className="flex flex-col md:flex-row items-center">
+            <h1 className="text-4xl sm:m-2 sm:p-2 sm:mr-[30px] mb-[20px] font-semibold Welcome-text">DashBoard</h1>
             <SessionProvider>
               <FormGenerator />
             </SessionProvider>

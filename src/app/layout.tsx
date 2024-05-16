@@ -22,7 +22,6 @@ export default function RootLayout({
         <PlausibleProvider domain={process.env.PLAUSIBLE_DOMAIN || ""} />
       </head>
       <body className={'$(inter.className) bg-[#030014] overflow-x-hidden'}>
-
         {children}
         </body>
     </html>
