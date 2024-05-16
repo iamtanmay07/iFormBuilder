@@ -28,7 +28,7 @@ const UpdgradeAccBtn = async (props: Props) => {
       <ProgressBar value={percent} />
       <p className='mt-2 text-white'>{formCount} out of {MAX_FREE_FROMS} forms generated.</p>
       <p className='text-white'>
-        <SubscribeBtn price="price_1Oeu01C0XQCoR9vaO7GKAKRJ" userId={userId} />
+        <SubscribeBtn price="price_1PGt3ySHNrXVN48gPSozPwR5" userId={userId} />
         {' '} for unlimited forms.
       </p>
     </div>

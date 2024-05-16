@@ -4,15 +4,11 @@ import { db } from "@/db";
 import { eq } from "drizzle-orm";
 import { users } from "@/db/schema";
 
-export async function POST(
-  req: Request
-) {
-  const { price, quantity = 1 } =
-    await req.json();
+export async function POST(req: Request) {
+  const { price, quantity = 1 } = await req.json();
   const userSession = await auth();
   const userId = userSession?.user?.id;
-  const userEmail =
-    userSession?.user?.email;
+  const userEmail = userSession?.user?.email;
 
   if (!userId) {
     return new Response(
@@ -25,10 +21,10 @@ export async function POST(
     );
   }
 
-  const user =
-    await db.query.users.findFirst({
-      where: eq(users.id, userId),
-    });
+  const user = await db.query.users.findFirst({
+    where: eq(users.id, userId),
+  });
+
   let customer;
 
   if (user?.stripeCustomerId) {
@@ -46,10 +42,7 @@ export async function POST(
       },
     };
 
-    const response =
-      await stripe.customers.create(
-        customerData
-      );
+    const response = await stripe.customers.create(customerData);
 
     customer = { id: response.id };
 
@@ -61,53 +54,39 @@ export async function POST(
       .where(eq(users.id, userId));
   }
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ||
-    "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:3000";
 
   try {
-    const session =
-      await stripe.checkout.sessions.create(
+    const session = await stripe.checkout.sessions.create({
+      success_url: `${baseUrl}/payment/success`,
+      customer: customer.id,
+      payment_method_types: ["card"],
+      line_items: [
         {
-          success_url: `${baseUrl}/payment/success`,
-          customer: customer.id,
-          payment_method_types: [
-            "card",
-          ],
-          line_items: [
-            {
-              price,
-              quantity,
-            },
-          ],
-          mode: "subscription",
-        }
-      );
+          price,
+          quantity,
+        },
+      ],
+      mode: "subscription",
+    });
 
-    if (session) {
-      return new Response(
-        JSON.stringify({
-          sessionId: session.id,
-        }),
-        {
-          status: 200,
-        }
-      );
-    } else {
-      return new Response(
-        JSON.stringify({
-          error:
-            "Failed to create session",
-        }),
-        {
-          status: 500,
-        }
-      );
-    }
+    return new Response(
+      JSON.stringify({
+        sessionId: session.id,
+      }),
+      {
+        status: 200,
+      }
+    );
   } catch (error) {
-    console.error(
-      "Error creating checkout session",
-      error
+    console.error("Error creating checkout session", error);
+    return new Response(
+      JSON.stringify({
+        error: "Internal Server Error",
+      }),
+      {
+        status: 500,
+      }
     );
   }
 }
